@@ -1,0 +1,33 @@
+import org.junit.After;
+import org.junit.Assert;
+import org.junit.Before;
+import org.junit.Test;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class TESTCV
+{
+    private WebDriver driver;
+
+    @Before
+    public void setUp()
+    {
+        System.setProperty("webdriver.chrome.driver", "C:\\TestFiles\\chromedriver.exe");
+        driver= new ChromeDriver();
+        driver.navigate().to("https://justjoin.it/?tab=with-salary");
+//driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+    }
+
+    @Test
+    public void joinittest()
+    {
+        Assert.assertEquals("Just Join IT: #1 Job Board for IT industry in Poland", driver.getTitle());
+       // driver.findElement(By.className("MuiButton-label")).click();
+    }
+
+    @After
+    public void tearDown()
+    {
+        driver.quit();
+    }
+}
